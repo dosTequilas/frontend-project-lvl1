@@ -8,3 +8,5 @@ lint:
 	npx eslint .
 test-coverage:
 	echo "test"
+brain-even:
+	node bin/brain-even.js
