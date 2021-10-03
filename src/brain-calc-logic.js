@@ -1,22 +1,21 @@
 import readlineSync from 'readline-sync';
 
 export default () => {
-  const randomNum1 = Math.floor(Math.random() * 100);
-  const randomNum2 = Math.floor(Math.random() * 100);
   const operatorsArr = ['+', '-', '*'];
-  let randomIndex = Math.floor(Math.random() * (3 - 0) + 0);
-  const randomExpression = `${randomNum1} ${operatorsArr[randomIndex]} ${randomNum2}`;
-  const correctAnswer = () => {
+
+  const calculateCorrectAnswer = (num1, num2, operator) => {
     let result = 0;
-    switch (operatorsArr[randomIndex]) {
+    switch (
+      operator // operatorsArr[randomIndex]
+    ) {
       case '+':
-        result = randomNum1 + randomNum2;
+        result = num1 + num2;
         break;
       case '-':
-        result = randomNum1 - randomNum2;
+        result = num1 - num2;
         break;
       case '*':
-        result = randomNum1 * randomNum2;
+        result = num1 * num2;
         break;
       default:
         'error';
@@ -29,14 +28,22 @@ export default () => {
   console.log(`Hello, ${name}`);
   console.log('What is the result of the expression?');
   for (let i = 1; i <= 3; i += 1) {
+    const randomNum1 = Math.floor(Math.random() * 100);
+    const randomNum2 = Math.floor(Math.random() * 100);
+    let randomIndex = Math.floor(Math.random() * (3 - 0) + 0);
+    const randomExpression = `${randomNum1} ${operatorsArr[randomIndex]} ${randomNum2}`;
+
     console.log(`Question: ${randomExpression}`);
     const answer = Number(readlineSync.question('Your answer:'));
 
-    if (answer === correctAnswer()) {
+    if (
+      answer ===
+      calculateCorrectAnswer(randomNum1, randomNum2, operatorsArr[randomIndex])
+    ) {
       console.log('Correct!');
     } else {
       console.log(
-        `${answer} is wrong answer ;(. Correct answer was ${correctAnswer()}.`
+        `${answer} is wrong answer ;(. Correct answer was ${calculateCorrectAnswer()}.`
       );
       return console.log(`Let's try again, ${name}!`);
     }
