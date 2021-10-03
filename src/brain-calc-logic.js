@@ -30,7 +30,7 @@ export default () => {
   console.log('What is the result of the expression?');
   for (let i = 1; i <= 3; i += 1) {
     console.log(`Question: ${randomExpression}`);
-    const answer = readlineSync.question('Your answer:');
+    const answer = Number(readlineSync.question('Your answer:'));
 
     if (answer === correctAnswer()) {
       console.log('Correct!');
