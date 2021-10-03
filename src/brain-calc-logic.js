@@ -20,7 +20,7 @@ export default () => {
       default:
         'error';
     }
-    return result;
+    return String(result);
   };
 
   console.log('Welcome to the brain games!');
@@ -34,7 +34,7 @@ export default () => {
     const randomExpression = `${randomNum1} ${operatorsArr[randomIndex]} ${randomNum2}`;
 
     console.log(`Question: ${randomExpression}`);
-    const answer = Number(readlineSync.question('Your answer:'));
+    const answer = readlineSync.question('Your answer:');
 
     if (
       answer ===
