@@ -1,13 +1,11 @@
 import readlineSync from 'readline-sync';
 
 export default () => {
-  const operatorsArr = ['+', '-', '*'];
+  const operators = ['+', '-', '*'];
 
-  const calculateCorrectAnswer = (num1, num2, operator) => {
+  const calculate = (num1, num2, operator) => {
     let result = 0;
-    switch (
-      operator // operatorsArr[randomIndex]
-    ) {
+    switch (operator) {
       case '+':
         result = num1 + num2;
         break;
@@ -31,19 +29,16 @@ export default () => {
     const randomNum1 = Math.floor(Math.random() * 100);
     const randomNum2 = Math.floor(Math.random() * 100);
     let randomIndex = Math.floor(Math.random() * (3 - 0) + 0);
-    const randomExpression = `${randomNum1} ${operatorsArr[randomIndex]} ${randomNum2}`;
+    const randomExpression = `${randomNum1} ${operators[randomIndex]} ${randomNum2}`;
 
     console.log(`Question: ${randomExpression}`);
     const answer = readlineSync.question('Your answer:');
 
-    if (
-      answer ===
-      calculateCorrectAnswer(randomNum1, randomNum2, operatorsArr[randomIndex])
-    ) {
+    if (answer === calculate(randomNum1, randomNum2, operators[randomIndex])) {
       console.log('Correct!');
     } else {
       console.log(
-        `${answer} is wrong answer ;(. Correct answer was ${calculateCorrectAnswer()}.`
+        `${answer} is wrong answer ;(. Correct answer was ${calculate()}.`
       );
       return console.log(`Let's try again, ${name}!`);
     }
