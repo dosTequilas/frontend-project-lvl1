@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import game from '../games/even.js';
+import getRandomNumber from '../games/even.js';
+import { gameDescription } from '../games/even.js';
+import engine from '../src/index.js';
 
-game();
+engine(gameDescription, getRandomNumber);
