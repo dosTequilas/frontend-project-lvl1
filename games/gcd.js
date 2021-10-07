@@ -6,27 +6,30 @@ const getRandomNumber = (min, max) => {
   return result;
 };
 
-const gameDescription = 'Find the greatest common divisor of given numbers.';
+export const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const levelGenerator = () => {
+const calculate = () => {
   const randomNum1 = getRandomNumber(1, 20);
   const randomNum2 = getRandomNumber(1, 20);
   const question = `${randomNum1} ${randomNum2}`;
-  let result = 0;
 
-  switch (operator) {
-    case '+':
-      result = randomNum1 + randomNum2;
-      break;
-    case '-':
-      result = randomNum1 - randomNum2;
-      break;
-    case '*':
-      result = randomNum1 * randomNum2;
-      break;
-    default:
-      result = 'error';
+  const divisorsNum1 = [];
+  const divisorsNum2 = [];
+
+  for (let i = 0; i <= randomNum1; i += 1) {
+    if (randomNum1 % i === 0) {
+      divisorsNum1.push(i);
+    }
+    if (randomNum2 % i === 0) {
+      divisorsNum2.push(i);
+    }
   }
-  return [question, String(result)];
+
+  const intersection = divisorsNum1.filter((value) => divisorsNum2.includes(value));
+
+  const biggest = intersection.pop();
+
+  return [question, String(biggest)];
 };
-export default () => engine(gameDescription, levelGenerator);
+
+export default calculate;

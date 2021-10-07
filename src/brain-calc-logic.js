@@ -16,6 +16,7 @@ export default () => {
         result = num1 * num2;
         break;
       default:
+        // eslint-disable-next-line no-unused-expressions
         'error';
     }
     return String(result);
@@ -28,7 +29,7 @@ export default () => {
   for (let i = 1; i <= 3; i += 1) {
     const randomNum1 = Math.floor(Math.random() * 100);
     const randomNum2 = Math.floor(Math.random() * 100);
-    let randomIndex = Math.floor(Math.random() * (3 - 0) + 0);
+    const randomIndex = Math.floor(Math.random() * (3 - 0) + 0);
     const randomExpression = `${randomNum1} ${operators[randomIndex]} ${randomNum2}`;
 
     console.log(`Question: ${randomExpression}`);
@@ -37,9 +38,7 @@ export default () => {
     if (answer === calculate(randomNum1, randomNum2, operators[randomIndex])) {
       console.log('Correct!');
     } else {
-      console.log(
-        `${answer} is wrong answer ;(. Correct answer was ${calculate()}.`
-      );
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${calculate()}.`);
       return console.log(`Let's try again, ${name}!`);
     }
   }
