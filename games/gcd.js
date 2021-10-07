@@ -1,4 +1,4 @@
-// import engine from '../src/index.js';
+import engine from '../src/index.js';
 
 const getRandomNumber = (min, max) => {
   let result = 0;
@@ -6,14 +6,12 @@ const getRandomNumber = (min, max) => {
   return result;
 };
 
-export const gameDescription = 'What is the result of the expression?';
-const operators = ['+', '-', '*'];
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const calculate = () => {
+const levelGenerator = () => {
   const randomNum1 = getRandomNumber(1, 20);
   const randomNum2 = getRandomNumber(1, 20);
-  const operator = operators[getRandomNumber(0, operators.length - 1)];
-  const question = `${randomNum1} ${operator} ${randomNum2}`;
+  const question = `${randomNum1} ${randomNum2}`;
   let result = 0;
 
   switch (operator) {
@@ -31,5 +29,4 @@ const calculate = () => {
   }
   return [question, String(result)];
 };
-
-export default calculate;
+export default () => engine(gameDescription, levelGenerator);

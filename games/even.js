@@ -6,9 +6,9 @@ const getRandomNumber = (min, max) => {
   return result;
 };
 
-const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const levelGenerator = () => {
+const calculate = () => {
   let result;
   const question = getRandomNumber(1, 20);
   if (question % 2 === 0) {
@@ -16,7 +16,7 @@ const levelGenerator = () => {
   } else {
     result = 'no';
   }
-  return [question, String(result)];
+  return [question, result];
 };
 
-export default () => engine(gameDescription, levelGenerator);
+export default calculate;
