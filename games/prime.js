@@ -6,7 +6,7 @@ const getRandomNumber = (min, max) => {
   return result;
 };
 
-export const gameDescription = 'Find the greatest common divisor of given numbers.';
+export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const calculate = () => {
   const num = getRandomNumber(1, 20);
@@ -23,6 +23,4 @@ const calculate = () => {
   }
   return [question, answer];
 };
-return [question, String(biggest)];
-
 export default calculate;
