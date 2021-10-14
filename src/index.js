@@ -4,7 +4,7 @@ const attemptsAmount = 3;
 
 const engine = (gameDescription, calculate) => {
   console.log('Welcome to the brain games!');
-  const name = readlineSync.question('May I have your name?');
+  const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}`);
   console.log(gameDescription);
 

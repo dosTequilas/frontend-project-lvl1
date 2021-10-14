@@ -1,28 +1,28 @@
+import getRandomNumber from '../utils/randomNumberGenerator.js';
 import engine from '../src/index.js';
+// отдельная функция, которая просто находит резульат,
+// calculate просто генерирует два рандомных числа, внутри себя запускает новую чистую функцию и
+// вставить рекурсивный алгоритм
+// в каждой игре - чистую функцию
+// выделить функцию getRa в отдельный модуль utils - как cli
+// записать аскинему с запуском через bin
 
-const getRandomNumber = (min, max) => {
-  let result = 0;
-  result = Math.floor(Math.random() * (max - min) + min);
-  return result;
+const gameDescription = 'Find the greatest common divisor of given numbers.';
+
+const gcd = (a, b) => {
+  if (!b) {
+    return a;
+  }
+  return gcd(b, a % b);
 };
-
-export const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const calculate = () => {
-  const num = getRandomNumber(1, 20);
-  const divisors = [];
-  const question = String(num);
-  for (let i = 1; i <= num; i += 1) {
-    if (num % i === 0) {
-      divisors.push(i);
-    }
-  }
-  let answer = 'yes';
-  if (divisors.length > 2) {
-    answer = 'no';
-  }
-  return [question, answer];
-};
-return [question, String(biggest)];
+  const randomNum1 = getRandomNumber(1, 20);
+  const randomNum2 = getRandomNumber(1, 20);
+  const question = `${randomNum1} ${randomNum2}`;
+  const correctAnswer = gcd(randomNum1, randomNum2);
 
-export default calculate;
+  return [question, String(correctAnswer)];
+};
+
+export default engine(gameDescription, calculate);
