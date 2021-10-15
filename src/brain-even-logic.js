@@ -28,5 +28,5 @@ export default () => {
     }
   }
 
-  return console.log(`Congratulaions, ${name}!`);
+  return console.log(`Congratulations, ${name}!`);
 };

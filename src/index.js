@@ -19,7 +19,7 @@ const engine = (gameDescription, calculate) => {
     }
     console.log('Correct!');
   }
-  console.log(`Congratulaions, ${name}!`);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default engine;
