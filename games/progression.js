@@ -24,4 +24,4 @@ const calculate = () => {
   return [array, correctAnswer];
 };
 
-export default engine(gameDescription, calculate);
+export default () => engine(gameDescription, calculate);

@@ -25,4 +25,4 @@ const calculate = () => {
   return [question, String(correctAnswer)];
 };
 
-export default engine(gameDescription, calculate);
+export default () => engine(gameDescription, calculate);
