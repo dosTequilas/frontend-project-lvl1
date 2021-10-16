@@ -17,7 +17,7 @@ export default () => {
         break;
       default:
         // eslint-disable-next-line no-unused-expressions
-        'error';
+        'stop';
     }
     return String(result);
   };
