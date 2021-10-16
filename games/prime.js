@@ -18,7 +18,7 @@ const isPrime = (num) => {
 };
 
 const calculate = () => {
-  const question = getRandomNumber(1, 20);
+  const question = getRandomNumber(2, 20);
   const correctAnswer = isPrime(question);
   return [question, correctAnswer];
 };
