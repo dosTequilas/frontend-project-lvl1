@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/dosTequilas/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/dosTequilas/frontend-project-lvl1/actions)",
+  "description": "Brain-games project",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -26,9 +26,6 @@
   },
   "homepage": "https://github.com/dosTequilas/frontend-project-lvl1#readme",
   "dependencies": {
-    "brain": "^1.0.0",
-    "brain-even": "^0.1.12",
-    "game": "^1.0.3",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

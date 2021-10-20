@@ -3,25 +3,25 @@ import engine from '../src/index.js';
 
 const gameDescription = 'What is the result of the expression?';
 
-const randomProgression = (step, startNum, length) => {
+const randomProgression = (startNum, step, length) => {
   const result = [];
-  for (let i = startNum; i < length; i += step) {
-    result.push(i);
+  for (let i = 0; i < length; i += 1) {
+    result.push(startNum + i * step);
   }
   return result;
 };
 
-const calculate = () => {
-  const length = getRandomNumber(30, 50);
+const createRound = () => {
+  const progressionLength = getRandomNumber(10, 20);
   const step = getRandomNumber(2, 5);
   const startNum = getRandomNumber(1, 10);
-  const index = getRandomNumber(0, 9);
+  const hiddenIndex = getRandomNumber(0, 9);
 
-  const array = randomProgression(step, startNum, length);
-  const replacedNumber = array[index];
-  array[index] = '..';
+  const progression = randomProgression(startNum, step, progressionLength);
+  const replacedNumber = progression[hiddenIndex];
+  progression[hiddenIndex] = '..';
   const correctAnswer = String(replacedNumber);
-  return [array, correctAnswer];
+  return [progression, correctAnswer];
 };
 
-export default () => engine(gameDescription, calculate);
+export default () => engine(gameDescription, createRound);

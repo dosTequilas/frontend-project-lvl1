@@ -4,23 +4,21 @@ import engine from '../src/index.js';
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  const divisors = [];
-  for (let i = 1; i <= num; i += 1) {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
     if (num % i === 0) {
-      divisors.push(i);
+      return false;
     }
   }
-  let answer = 'yes';
-  if (divisors.length > 2) {
-    answer = 'no';
-  }
-  return answer;
+  return true;
 };
 
-const calculate = () => {
+const createRound = () => {
   const question = getRandomNumber(2, 20);
-  const correctAnswer = isPrime(question);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
-export default () => engine(gameDescription, calculate);
+export default () => engine(gameDescription, createRound);
