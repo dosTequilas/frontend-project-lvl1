@@ -16,12 +16,13 @@ const createRound = () => {
   const step = getRandomNumber(2, 5);
   const startNum = getRandomNumber(1, 10);
   const hiddenIndex = getRandomNumber(0, 9);
-
   const progression = randomProgression(startNum, step, progressionLength);
   const replacedNumber = progression[hiddenIndex];
   progression[hiddenIndex] = '..';
+
+  const progressionString = progression.join(' ');
   const correctAnswer = String(replacedNumber);
-  return [progression, correctAnswer];
+  return [progressionString, correctAnswer];
 };
 
 export default () => engine(gameDescription, createRound);
