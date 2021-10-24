@@ -1,5 +1,5 @@
 import getRandomNumber from '../utils/randomNumberGenerator.js';
-import engine from '../src/index.js';
+import engine from '../index.js';
 
 const gameDescription = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
@@ -18,7 +18,7 @@ const calculate = (num1, num2, operator) => {
       result = num1 * num2;
       break;
     default:
-      result = 'error';
+      result = null;
   }
   return result;
 };

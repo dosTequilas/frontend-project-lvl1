@@ -1,9 +1,9 @@
 import getRandomNumber from '../utils/randomNumberGenerator.js';
-import engine from '../src/index.js';
+import engine from '../index.js';
 
-const gameDescription = 'What is the result of the expression?';
+const gameDescription = 'What number is missing in the progression?';
 
-const randomProgression = (startNum, step, length) => {
+const getRandomProgression = (startNum, step, length) => {
   const result = [];
   for (let i = 0; i < length; i += 1) {
     result.push(startNum + i * step);
@@ -16,7 +16,7 @@ const createRound = () => {
   const step = getRandomNumber(2, 5);
   const startNum = getRandomNumber(1, 10);
   const hiddenIndex = getRandomNumber(0, 9);
-  const progression = randomProgression(startNum, step, progressionLength);
+  const progression = getRandomProgression(startNum, step, progressionLength);
   const replacedNumber = progression[hiddenIndex];
   progression[hiddenIndex] = '..';
 
