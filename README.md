@@ -31,10 +31,17 @@ Next, install makefile.
 make install
 ```
 
+Then create a link in a make file.
+
+```bash
+link:
+	npm link
+```
+
 Then create a link for faster launch.
 
 ```bash
-npm link
+make link
 ```
 
 ## ⚙️ Games
